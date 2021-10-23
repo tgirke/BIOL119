@@ -25,13 +25,14 @@ Rscript -e "rmarkdown::render('exprAnalyisDemo.Rmd', c('html_document'), clean=F
 
 # Initialize project 
 
-The following provides clones the pregenerated code from GitHub into an R project on RStudio Cloud.
+The instructions will clone the pregenerated code for this exercise from GitHub into an R project on RStudio Cloud.
 
 1. Create a free personal account on RStudio Cloud [here](https://rstudio.cloud/)
 2. Go to RStudio Cloud [here](https://rstudio.cloud/projects/)
 3. Select under blue _New Project_ menu: `New Project from Git Repository`
 4. Provide this URL for BIOL119 repos: https://github.com/tgirke/BIOL119.git 
-5. Prior to committing/pushing to GitHub the first time, set your GitHub identity with:
+5. Optional: to work with your own GitHub repos and push changes to it, 
+   then it will be necessary to set your GitHub identity with:
    - git config --global user.email "..."
    - git config --global user.name "..."
 
