@@ -1,7 +1,10 @@
-## Clone project from GitHub here
-## Go to RStudio Cloud 
+## Initialize/clone project from GitHub
+## Go to RStudio Cloud: https://rstudio.cloud/projects/
 ## Select under blue New Project menu: New Project from Git Repository
 ## Paste in URL for BIOL119 repos: https://github.com/tgirke/BIOL119.git 
+## Note: when committing/pushing the first time, set your identity with
+##       git config --global user.email "..."
+##       git config --global user.name "..."
 
 ## Install required packages
 if(!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
