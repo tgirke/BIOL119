@@ -23,19 +23,20 @@ weight: 304
 Rscript -e "rmarkdown::render('exprAnalyisDemo.Rmd', c('html_document'), clean=FALSE)"
 -->
 
-<!---
-## Initialize/clone project from GitHub
-## Go to RStudio Cloud: https://rstudio.cloud/projects/
-## Select under blue New Project menu: New Project from Git Repository
-## Paste in URL for BIOL119 repos: https://github.com/tgirke/BIOL119.git 
-## Note: prior to committing/pushing to GitHub the first time, set your 
-## identity with:
-##       git config --global user.email "..."
-##       git config --global user.name "..."
--->
+# Initialize project 
+
+The following provides clones the pregenerated code from GitHub into an R project on RStudio Cloud.
+
+1. Create a free personal account on RStudio Cloud [here](https://rstudio.cloud/)
+2. Go to RStudio Cloud [here](https://rstudio.cloud/projects/)
+3. Select under blue _New Project_ menu: `New Project from Git Repository`
+4. Provide this URL for BIOL119 repos: https://github.com/tgirke/BIOL119.git 
+5. Prior to committing/pushing to GitHub the first time, set your GitHub identity with:
+   - git config --global user.email "..."
+   - git config --global user.name "..."
 
 # Install required packages
-```{r package_installs, eval=FALSE, message=FALSE}
+```{r package_installs, eval=FALSE, message=FALSE, warning=FALSE}
 if(!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
 BiocManager::install(c("GEOquery", "limma", "clusterProfiler", "org.Hs.eg.db", "enrichplot", "pheatmap", "RColorBrewer"))
 ```
