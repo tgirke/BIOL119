@@ -49,7 +49,7 @@ a expression data set that involves a chemical treatment. The specific data set 
 This Affymetrix gene expression profiling experiment from Gillis _et al._ [-@Gillis2007-qk] aims to study the effect of the air pollutant 
 1,2,4-benzenetriol on blood cells to provide insight into the molecular basis of benzene cytotoxicity. 
 More detailed annotation information about this experiment is available under Reference 
-Series [GSE7664 URL](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE7664). 
+Series [GSE7664](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE7664). 
 
 ```{r import_data_from_geo, eval=TRUE, message=FALSE}
 library(GEOquery) 
