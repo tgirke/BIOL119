@@ -1,7 +1,7 @@
 ---
 title: "Gene Expression Analysis" 
 author: "Author: Your Name"
-date: "Last update: 25 October, 2021" 
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`"
 output:
   html_document:
     toc: true
@@ -45,6 +45,9 @@ exprs(eset)[1:4, ] # Inspect expression data that are RMA normalized and on log2
 ```
 
 # DEG analysis with Limma
+
+Text and citation... [@Ritchie2015-rl]
+
 ```{r deg_analysis, eval=TRUE, message=FALSE}
 library(limma) # Loads limma library.
 targets <- pData(eset)
@@ -59,6 +62,9 @@ deg_df <- deg_df[!is.na(deg_df$adj.P.Val),]
 ```
 
 # Over-represention analysis (ORA) with clusterProfiler
+
+text and citation ... [@Yu2012-hr]
+
 ```{r overrepresentation_analysis, eval=FALSE, message=FALSE}
 cutoff <- 0.05 # Cutoff to use for filtering on adjusted p-value (FDR)
 ids <- deg_df[deg_df$adj.P.Val <= cutoff, "Gene.ID"]
@@ -81,6 +87,7 @@ barplot(ego_bp, showCategory=10)
 ```
 
 # Clustering
+dummy citation [@Smith1981-ax; @Needleman1970-md]
 ```{r clustering, eval=FALSE, message=FALSE}
 library(pheatmap); library("RColorBrewer")
 affy_ids <- row.names(deg_df[deg_df$adj.P.Val <= cutoff, ])
@@ -94,3 +101,4 @@ pheatmap(deg_ma, color=brewer.pal(9, "Blues"))
 sessionInfo()
 ```
 
+# References

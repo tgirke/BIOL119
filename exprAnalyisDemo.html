@@ -276,7 +276,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Gene Expression Analysis</h1>
 <h4 class="author">Author: Your Name</h4>
-<h4 class="date">Last update:23 October, 2021</h4>
+<h4 class="date">Last update: 23 October, 2021</h4>
 
 </div>
 
@@ -339,6 +339,7 @@ eset &lt;- GDS2eSet(gds)</code></pre>
 </div>
 <div id="deg-analysis-with-limma" class="section level1">
 <h1>DEG analysis with Limma</h1>
+<p>Text and citation… <span class="citation">(Ritchie et al. 2015)</span></p>
 <pre class="r"><code>library(limma) # Loads limma library.
 targets &lt;- pData(eset)
 design &lt;- model.matrix(~ -1+factor(as.character(targets$agent)))
@@ -352,6 +353,7 @@ deg_df &lt;- deg_df[!is.na(deg_df$adj.P.Val),]</code></pre>
 </div>
 <div id="over-represention-analysis-ora-with-clusterprofiler" class="section level1">
 <h1>Over-represention analysis (ORA) with clusterProfiler</h1>
+<p>text and citation … <span class="citation">(Yu et al. 2012)</span></p>
 <pre class="r"><code>cutoff &lt;- 0.05 # Cutoff to use for filtering on adjusted p-value (FDR)
 ids &lt;- deg_df[deg_df$adj.P.Val &lt;= cutoff, &quot;Gene.ID&quot;]
 ids &lt;- ids[!grepl(&quot;/&quot;, ids)] # Removes ambiguous mappings
@@ -372,7 +374,7 @@ barplot(ego_bp, showCategory=10)</code></pre>
 </div>
 <div id="clustering" class="section level1">
 <h1>Clustering</h1>
-<p>dummy citation <span class="citation">(Smith and Waterman 1981; Needleman and Wunsch 1970)</span></p>
+<p>dummy citation <span class="citation">(<strong>Smith1981-ax?</strong>; <strong>Needleman1970-md?</strong>)</span></p>
 <pre class="r"><code>library(pheatmap); library(&quot;RColorBrewer&quot;)
 affy_ids &lt;- row.names(deg_df[deg_df$adj.P.Val &lt;= cutoff, ])
 deg_ma &lt;- exprs(eset)[affy_ids, ] 
@@ -418,11 +420,11 @@ pheatmap(deg_ma, color=brewer.pal(9, &quot;Blues&quot;))</code></pre>
 <div id="references" class="section level1 unnumbered">
 <h1 class="unnumbered">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Needleman1970-md" class="csl-entry">
-Needleman, S B, and C D Wunsch. 1970. <span>“<span class="nocase">A general method applicable to the search for similarities in the amino acid sequence of two proteins</span>.”</span> <em>J. Mol. Biol.</em> 48 (3): 443–53. <a href="https://doi.org/10.1016/0022-2836(70)90057-4">https://doi.org/10.1016/0022-2836(70)90057-4</a>.
+<div id="ref-Ritchie2015-rl" class="csl-entry">
+Ritchie, Matthew E, Belinda Phipson, Di Wu, Yifang Hu, Charity W Law, Wei Shi, and Gordon K Smyth. 2015. <span>“<span class="nocase">limma powers differential expression analyses for RNA-sequencing and microarray studies</span>.”</span> <em>Nucleic Acids Res.</em> 43 (7): e47. <a href="https://doi.org/10.1093/nar/gkv007">https://doi.org/10.1093/nar/gkv007</a>.
 </div>
-<div id="ref-Smith1981-ax" class="csl-entry">
-Smith, T F, and M S Waterman. 1981. <span>“<span class="nocase">Identification of common molecular subsequences</span>.”</span> <em>J. Mol. Biol.</em> 147 (1): 195–97. <a href="http://www.ncbi.nlm.nih.gov/pubmed/7265238">http://www.ncbi.nlm.nih.gov/pubmed/7265238</a>.
+<div id="ref-Yu2012-hr" class="csl-entry">
+Yu, Guangchuang, Li-Gen Wang, Yanyan Han, and Qing-Yu He. 2012. <span>“<span class="nocase">clusterProfiler: an R package for comparing biological themes among gene clusters</span>.”</span> <em>OMICS</em> 16 (5): 284–87. <a href="https://doi.org/10.1089/omi.2011.0118">https://doi.org/10.1089/omi.2011.0118</a>.
 </div>
 </div>
 </div>
