@@ -2,7 +2,8 @@
 ## Go to RStudio Cloud: https://rstudio.cloud/projects/
 ## Select under blue New Project menu: New Project from Git Repository
 ## Paste in URL for BIOL119 repos: https://github.com/tgirke/BIOL119.git 
-## Note: when committing/pushing the first time, set your identity with
+## Note: prior to committing/pushing to GitHub the first time, set your 
+## identity with:
 ##       git config --global user.email "..."
 ##       git config --global user.name "..."
 
