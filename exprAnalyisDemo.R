@@ -1,3 +1,8 @@
+## Clone project from GitHub here
+## Go to RStudio Cloud 
+## Select under blue New Project menu: New Project from Git Repository
+## Paste in URL for BIOL119 repos: https://github.com/tgirke/BIOL119.git 
+
 ## Install required packages
 if(!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
 BiocManager::install(c("GEOquery", "limma", "clusterProfiler", "org.Hs.eg.db", "enrichplot", "pheatmap", "RColorBrewer"))
