@@ -87,9 +87,12 @@ barplot(ego_bp, showCategory=10)
 ```
 
 # Clustering
+
 dummy citation [@Smith1981-ax; @Needleman1970-md]
-```{r clustering, eval=FALSE, message=FALSE}
+
+```{r clustering, eval=TRUE, message=FALSE}
 library(pheatmap); library("RColorBrewer")
+cutoff <- 0.05 # Cutoff to use for filtering on adjusted p-value (FDR)
 affy_ids <- row.names(deg_df[deg_df$adj.P.Val <= cutoff, ])
 deg_ma <- exprs(eset)[affy_ids, ] 
 pheatmap(deg_ma, color=brewer.pal(9, "Blues"))
