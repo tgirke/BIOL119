@@ -42,8 +42,8 @@ from NCBI's GEO database, and then identifies differentially expressed genes
 
 # Install required packages
 
-The following will install all packages required for this exercise. The install in new 
-R project will take about 2-3 minutes. This install only needs to be done once, meaning
+The following will install all packages required for this exercise. A fresh install into 
+a new R project will take about 2-3 minutes. This install only needs to be done once, meaning
 users want to skip this step after restarting R or rerunning the anlysis.
 
 ```{r package_installs, eval=FALSE, message=FALSE, warning=FALSE}
@@ -165,7 +165,7 @@ deg_ma <- exprs(eset)[affy_ids, ]
 pheatmap(deg_ma, scale="row", color=brewer.pal(9, "Blues"))
 ```
 
-## Session Info
+# Session Info
 
 ```{r sessionInfo}
 sessionInfo()
