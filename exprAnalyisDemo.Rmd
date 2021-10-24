@@ -87,7 +87,7 @@ exprs(eset)[1:4, ]
 # DEG analysis with Limma
 
 The following identifies differentially expressed genes with the `limma`
-package [@Ritchie2015-rl]. The includes the following steps: (1) creation of a
+package [@Ritchie2015-rl]. This includes the following steps: (1) creation of a
 design matrix for this data set with `model.matrix`; (2) fitting of a linear
 model for each gene based on the given series of arrays with `lmFit`; (3)
 creation of a contrast matrix defining the sample comparisons with
@@ -107,7 +107,8 @@ contrast.matrix <- makeContrasts(Control-Treatment, levels=design)
 fit2 <- contrasts.fit(fit, contrast.matrix) 
 fit2 <- eBayes(fit2)
 deg_df <- topTable(fit2, coef=1, adjust="fdr", sort.by="B", number=Inf)
-deg_df <- deg_df[!is.na(deg_df$adj.P.Val),]
+deg_df <- deg_df[!is.na(deg_df$adj.P.Val),] # Removes rows with NA values
+head(deg_df)[,22:27]
 ```
 
 # Enrichment analysis of GO terms 
