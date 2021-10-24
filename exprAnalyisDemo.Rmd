@@ -82,12 +82,17 @@ BiocManager::install(c("GEOquery", "limma", "clusterProfiler", "org.Hs.eg.db", "
 
 # Import data from GEO
 
-The following uses the `GEOquery` package to automatically download from GEO 
-a expression data set that involves a chemical treatment. The specific data set chosen for this exercise is experiment [GDS2778](https://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2778). 
-This Affymetrix gene expression profiling experiment from Gillis _et al._ [-@Gillis2007-qk] aims to study the effect of the air pollutant 
-1,2,4-benzenetriol on blood cells to provide insight into the molecular basis of benzene cytotoxicity. 
-More detailed annotation information about this experiment is available under Reference 
-Series [GSE7664](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE7664). 
+The following uses the `GEOquery` package to automatically download from GEO a
+expression data set that involves a chemical treatment. The specific data set
+chosen for this exercise is experiment
+[GDS2778](https://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2778), which is the 
+same one used for the online exercises of computer section SA5. This
+Affymetrix gene expression profiling experiment from Gillis _et al._
+[-@Gillis2007-qk] aims to study the effect of the air pollutant
+1,2,4-benzenetriol on blood cells to provide insight into the molecular basis
+of benzene cytotoxicity.  More detailed annotation information about this
+experiment is available under Reference Series
+[GSE7664](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE7664). 
 
 ```{r import_data_from_geo, eval=TRUE, message=FALSE}
 library(GEOquery) 
