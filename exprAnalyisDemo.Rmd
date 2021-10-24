@@ -63,8 +63,8 @@ The R code along with the human readable text in this document can be opened and
    lines in the order shown in the text.
 
 Alternatively, one can execute all code in this document at once simply by
-pressing the triangle next to the Knit button above the code editor window and
-selecting `Knit to HTML`. This will not only execute the code but also
+pressing the triangle next to the Knit button above the code editor window in RStudio, and
+then selecting `Knit to HTML`. This will not only execute the code, but also
 regenerate this HTML document and update all output, tables and figures accordingly. 
 Similarly, one can generate a PDF document instead. The environment that makes 
 this possible is called R Markdown.
