@@ -25,16 +25,20 @@ Rscript -e "rmarkdown::render('exprAnalyisDemo.Rmd', c('html_document'), clean=F
 
 # Initialize project 
 
-The instructions will clone the pregenerated code for this exercise from GitHub into an R project on RStudio Cloud.
+The following provides brief instructions how to access RStudio Cloud, clone
+the pregenerated code for this exercise from GitHub, and run the provided
+analysis code. The latter includes the download of genome-wide expression data
+from NCBI's GEO database, and then identify differentially expressed genes
+(DEGs), enriched GO terms and clusters of co-expressed genes.
 
 1. Create a free personal account on RStudio Cloud [here](https://rstudio.cloud/)
 2. Go to RStudio Cloud [here](https://rstudio.cloud/projects/)
 3. Select under blue _New Project_ menu: `New Project from Git Repository`
 4. Provide this URL for BIOL119 repos: https://github.com/tgirke/BIOL119.git 
 5. Optional: to work with your own GitHub repos and push changes to it, 
-   then it will be necessary to set your GitHub identity with:
-   - git config --global user.email "..."
-   - git config --global user.name "..."
+   it will be necessary to set your GitHub identity with:
+   - `git config --global user.email "..."`
+   - `git config --global user.name "..."`
 
 # Install required packages
 ```{r package_installs, eval=FALSE, message=FALSE, warning=FALSE}
@@ -76,28 +80,46 @@ deg_df <- topTable(fit2, coef=1, adjust="fdr", sort.by="B", number=Inf)
 deg_df <- deg_df[!is.na(deg_df$adj.P.Val),]
 ```
 
-# Over-represention analysis (ORA) with clusterProfiler
+# Enrichment analysis of GO terms 
 
-text and citation ... [@Yu2012-hr]
+The following performs over-represention analysis (ORA) of GO terms using functions from 
+the `clusterProfiler` package [@Yu2012-hr].
+
+## Prepare input
 
 ```{r overrepresentation_analysis, eval=TRUE, message=FALSE}
 cutoff <- 0.05 # Cutoff to use for filtering on adjusted p-value (FDR)
 ids <- deg_df[deg_df$adj.P.Val <= cutoff, "Gene.ID"]
 ids <- ids[!grepl("/", ids)] # Removes ambiguous mappings
 ids <- ids[grepl("", ids)]
-library(clusterProfiler); library(org.Hs.eg.db); library(enrichplot)
-ego_mf <- enrichGO(gene=ids, OrgDb=org.Hs.eg.db, ont="MF", pAdjustMethod="BH", pvalueCutoff=0.1, readable=TRUE)
-ego_bp <- enrichGO(gene=ids, OrgDb=org.Hs.eg.db, ont="BP", pAdjustMethod="BH", pvalueCutoff=0.1, readable=TRUE)
 ```
 
-## Visualize BP and MF ontology results
-```{r plot_enrichment, eval=TRUE, message=FALSE}
+## Enrichment of MF terms
+
+```{r overrepresentation_analysis_mf, eval=TRUE, message=FALSE}
+library(clusterProfiler); library(org.Hs.eg.db); library(enrichplot)
+ego_mf <- enrichGO(gene=ids, OrgDb=org.Hs.eg.db, ont="MF", pAdjustMethod="BH", pvalueCutoff=0.1, readable=TRUE)
 dim(ego_mf)
 head(ego_mf)
+```
+
+## Visualization of MF result
+
+```{r plot_enrichment_mf, eval=TRUE, message=FALSE}
 barplot(ego_mf, showCategory=10)
 goplot(ego_mf)
+```
+
+## Enrichment of BP terms
+
+```{r overrepresentation_analysis_bp, eval=TRUE, message=FALSE}
+ego_bp <- enrichGO(gene=ids, OrgDb=org.Hs.eg.db, ont="BP", pAdjustMethod="BH", pvalueCutoff=0.1, readable=TRUE)
 dim(ego_bp)
 head(ego_bp)
+```
+
+## Visualization of BP result
+```{r plot_enrichment_bp, eval=TRUE, message=FALSE}
 barplot(ego_bp, showCategory=10)
 ```
 
