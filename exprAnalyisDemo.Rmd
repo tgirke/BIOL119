@@ -73,10 +73,13 @@ sample names, and control, treatment and replicate information.
 pData(eset)[ ,1:2] 
 ```
 The expression data can be returned with the `exprs` function (here for first 4
-rows). In this case the authors have normalized the already with the RMA
-method [@Gautier2004-tk]. This is why the normalization is skipped here. Note, RMA returns log2 transformed values.
-Users who are interested in learning to perform the normalization themselves want to look into 
-the `rma` function that is part of the `affy` package from Bioconductor (see [here](https://bioconductor.org/packages/release/bioc/html/affy.html)).
+rows). In this case the authors have normalized the data already with the RMA
+method [@Gautier2004-tk]. This is why the normalization step is skipped here.
+Note, RMA returns log2 transformed values which is the expected input format for the
+downstream DEG analysis with `limma`. Users who are interested in
+learning to perform the normalization themselves want to look into the `rma`
+function that is part of the `affy` package from Bioconductor (see
+[here](https://bioconductor.org/packages/release/bioc/html/affy.html)).
 
 
 ```{r inspect_data_from_geo_2, eval=TRUE, message=FALSE}
