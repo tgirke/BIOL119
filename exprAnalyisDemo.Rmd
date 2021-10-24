@@ -1,5 +1,5 @@
 ---
-title: "Gene Expression Analysis" 
+title: "BIOL119: Gene Expression Analysis" 
 author: "Author: Your Name"
 date: "Last update: `r format(Sys.time(), '%d %B, %Y')`"
 output:
@@ -27,20 +27,25 @@ Rscript -e "rmarkdown::render('exprAnalyisDemo.Rmd', c('html_document'), clean=F
 
 The following provides brief instructions how to access RStudio Cloud, clone
 the pregenerated code for this exercise from GitHub, and run the provided
-analysis code. The latter includes the download of genome-wide expression data
-from NCBI's GEO database, and then identify differentially expressed genes
+analysis code. The latter downloads genome-wide expression data
+from NCBI's GEO database, and then identifies differentially expressed genes
 (DEGs), enriched GO terms and clusters of co-expressed genes.
 
 1. Create a free personal account on RStudio Cloud [here](https://rstudio.cloud/)
 2. Go to RStudio Cloud [here](https://rstudio.cloud/projects/)
 3. Select under blue _New Project_ menu: `New Project from Git Repository`
-4. Provide this URL for BIOL119 repos: https://github.com/tgirke/BIOL119.git 
+4. Provide this URL to clone BIOL119 repos: [https://github.com/tgirke/BIOL119.git](https://github.com/tgirke/BIOL119.git) 
 5. Optional: to work with your own GitHub repos and push changes to it, 
    it will be necessary to set your GitHub identity with:
    - `git config --global user.email "..."`
    - `git config --global user.name "..."`
 
 # Install required packages
+
+The following will install all packages required for this exercise. The install in new 
+R project will take about 2-3 minutes. This install only needs to be done once, meaning
+users want to skip this step after restarting R or rerunning the anlysis.
+
 ```{r package_installs, eval=FALSE, message=FALSE, warning=FALSE}
 if(!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
 BiocManager::install(c("GEOquery", "limma", "clusterProfiler", "org.Hs.eg.db", "enrichplot", "pheatmap", "RColorBrewer"))
@@ -59,22 +64,47 @@ Series [GSE7664](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE7664).
 library(GEOquery) 
 gds <- getGEO("GDS2778") # Download GDS2778 data from GEO
 eset <- GDS2eSet(gds)
-pData(eset)[ ,1:2] # Inspect experimental design 
-exprs(eset)[1:4, ] # Inspect expression data that are RMA normalized and on log2 scale
+```
+
+The experimental design information can be returned with the `pData` function. This includes
+sample names, and control, treatment and replicate information.
+
+```{r inspect_data_from_geo_1, eval=TRUE, message=FALSE}
+pData(eset)[ ,1:2] 
+```
+The expression data can be returned with the `exprs` function (here for first 4
+rows). In this case the authors have normalized the already with the RMA
+method [@Gautier2004-tk]. This is why the normalization is skipped here. Note, RMA returns log2 transformed values.
+Users who are interested in learning to perform the normalization themselves want to look into 
+the `rma` function that is part of the `affy` package from Bioconductor (see [here](https://bioconductor.org/packages/release/bioc/html/affy.html)).
+
+
+```{r inspect_data_from_geo_2, eval=TRUE, message=FALSE}
+dim(exprs(eset))
+exprs(eset)[1:4, ] 
 ```
 
 # DEG analysis with Limma
 
-Text and citation... [@Ritchie2015-rl]
+The following identifies differentially expressed genes with the `limma`
+package [@Ritchie2015-rl]. The includes the following steps: (1) creation of a
+design matrix for this data set with `model.matrix`; (2) fitting of a linear
+model for each gene based on the given series of arrays with `lmFit`; (3)
+creation of a contrast matrix defining the sample comparisons with
+`makeContrasts`; (4) estimation of coefficients and standard errors for the
+chosen contrast(s) with `contrast.fit`; and (5) computation of moderated
+t-statistics and log-odds of differential expression by empirical Bayes
+shrinkage of the standard errors towards a common value using `eBayes`.
+Subsequently, the final results can be accessed with the `topTable` function.
 
 ```{r deg_analysis, eval=TRUE, message=FALSE}
 library(limma) # Loads limma library.
 targets <- pData(eset)
 design <- model.matrix(~ -1+factor(as.character(targets$agent)))
 colnames(design) <- c("Treatment", "Control") 
-fit <- lmFit(eset, design) # Fits a linear model for each gene based on the given series of arrays.
+fit <- lmFit(eset, design) 
 contrast.matrix <- makeContrasts(Control-Treatment, levels=design)
-fit2 <- contrasts.fit(fit, contrast.matrix) # Computes estimated coefficients and standard errors for a given set of contrasts.
+fit2 <- contrasts.fit(fit, contrast.matrix) 
 fit2 <- eBayes(fit2)
 deg_df <- topTable(fit2, coef=1, adjust="fdr", sort.by="B", number=Inf)
 deg_df <- deg_df[!is.na(deg_df$adj.P.Val),]
