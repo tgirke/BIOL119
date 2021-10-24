@@ -25,9 +25,9 @@ Rscript -e "rmarkdown::render('exprAnalyisDemo.Rmd', c('html_document'), clean=F
 
 # Get started 
 
-The following provides brief instructions how to access RStudio Cloud, clone
-the pregenerated code for this exercise from GitHub, and run the provided
-analysis code. The latter downloads genome-wide expression data
+The following provides brief instructions how to access RStudio Cloud (or
+R/RStudio), clone the pre-generated code for this exercise from GitHub, and run
+the provided analysis code. The latter downloads genome-wide expression data
 from NCBI's GEO database, and then identifies differentially expressed genes
 (DEGs), enriched GO terms and clusters of co-expressed genes.
 
@@ -40,7 +40,7 @@ below (steps 1-4). Instead of RStudio Cloud, users can install R from
 computer.  Since the usage of RStudio Cloud does not require any local software
 installs, it may be easier for beginners. On the other hand, the local install
 option is less restrictive and more flexible.  In both cases the user interfaces are
-extremly simmilar and the way to run R code is nearly identical. 
+extremely similar and the way to run R code is nearly identical. 
 
 1. Create a free personal account on RStudio Cloud [here](https://rstudio.cloud/)
 2. Go to RStudio Cloud [here](https://rstudio.cloud/projects/)
@@ -55,9 +55,9 @@ extremly simmilar and the way to run R code is nearly identical.
 
 The R code along with the human readable text in this document can be opened and executed as follows:
 
-1. Open source `Rmd` file for this document by selecting in top menu: `File ->
-   Open File -> exprAnalyisDemo.Rmd` 
-2. Execulte code by placing your curser on a line of R code and then pressing
+1. Open source `Rmd` file for this document by selecting in top menu: `File` ->
+   `Open File` -> `exprAnalyisDemo.Rmd` 
+2. Execute code by placing your cursor on a line of R code and then pressing
    on your keyboard `Ctrl + Enter`. This will send the corresponding code line
    to the R console and execute (run) the code. It is important to execute the
    lines in the order shown in the text.
@@ -73,7 +73,7 @@ this possible is called R Markdown.
 
 The following will install all packages required for this exercise. A fresh install into 
 a new R project will take about 2-3 minutes. This install only needs to be done once, meaning
-users want to skip this step after restarting R or rerunning the anlysis.
+users want to skip this step after restarting R or rerunning the analysis.
 
 ```{r package_installs, eval=FALSE, message=FALSE, warning=FALSE}
 if(!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
@@ -145,7 +145,7 @@ head(deg_df)[,22:27]
 
 # Enrichment analysis of GO terms 
 
-The following performs over-represention analysis (ORA) of GO terms using functions from 
+The following performs over-representation analysis (ORA) of GO terms using functions from 
 the `clusterProfiler` package [@Yu2012-hr].
 
 ## Prepare input
