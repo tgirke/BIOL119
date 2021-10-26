@@ -33,23 +33,38 @@ from NCBI's GEO database, and then identifies differentially expressed genes
 
 ## Initialize project 
 
-To get started with RStudio Cloud, users can follow the itemized instructions
-below (steps 1-4). Instead of RStudio Cloud, users can install R from
-[CRAN](https://cran.r-project.org) and RStudio from
-[here](https://www.rstudio.com/products/rstudio/download/) on their local
-computer.  Since the usage of RStudio Cloud does not require any local software
-installs, it may be easier for beginners. On the other hand, the local install
-option is less restrictive and more flexible.  In both cases the user interfaces are
-extremely similar and the way to run R code is nearly identical. 
+To get started with [RStudio Cloud](https://rstudio.cloud/), users can follow the instructions below.
+Instead of RStudio Cloud, users can install everything on their local computer
+by first installing R from [CRAN](https://cran.r-project.org), and then the free version
+of RStudio from [here](https://www.rstudio.com/products/rstudio/download/). Since the
+usage of RStudio Cloud does not require any local software installs, this
+method is recommended for users who are new to R. For more advanced users the
+local install option is less restrictive and more flexible.  In both cases the
+user interfaces are extremely similar and the way to run R code is nearly
+identical. 
 
-1. Create a free personal account on RStudio Cloud [here](https://rstudio.cloud/)
+### A. Simple link-based approach
+Note, students who are entirely new to R should use this approach:
+
+1. Create a free personal account on RStudio Cloud
+   [here](https://rstudio.cloud/). 
+2. Next click the <span style="background-color: #f1c40f;">RStudio Cloud assignment link</span></a> provided under the same name
+   and color coding on the corresponding assignment page on Canvas
+   [here](https://elearn.ucr.edu/courses/17258/assignments/180492). Not only
+   the latter page is private to this class.
+3. Start the pregenerated assignment.
+4. Continue under section 1.2 and skip R package install under section 2.
+
+### B. Clone assignment from GitHub
+This alternative approach is for slightly more advanced R users.
+
+1. Create a free personal account on RStudio Cloud
+   [here](https://rstudio.cloud/). 
 2. Go to RStudio Cloud [here](https://rstudio.cloud/projects/)
 3. Select under blue _New Project_ menu: `New Project from Git Repository`
 4. Provide this URL to clone BIOL119 repos: [https://github.com/tgirke/BIOL119.git](https://github.com/tgirke/BIOL119.git) 
-5. Optional: to work with your own GitHub repos and push changes to it, 
-   it will be necessary to set your GitHub identity with:
-   - `git config --global user.email "..."`
-   - `git config --global user.name "..."`
+5. Continue under section 1.2. Note the R package installs under section 2 will be 
+   required for this approach.
 
 ## Load R code and run it
 
