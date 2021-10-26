@@ -27,30 +27,33 @@ Rscript -e "rmarkdown::render('exprAnalyisDemo.Rmd', c('html_document'), clean=F
 
 The following provides brief instructions how to access RStudio Cloud (or
 R/RStudio), clone the pre-generated code for this exercise from GitHub, and run
-the provided analysis code. The latter downloads genome-wide expression data
-from NCBI's GEO database, and then identifies differentially expressed genes
-(DEGs), enriched GO terms and clusters of co-expressed genes.
+the provided analysis code. The latter automatically downloads genome-wide expression data
+from NCBI's GEO database, and then identifies:
+
++ differentially expressed genes (DEGs)
++ enriched GO terms
++ clusters of co-expressed genes
 
 ## Initialize project 
 
 To get started with [RStudio Cloud](https://rstudio.cloud/), users can follow the instructions below.
-Instead of RStudio Cloud, users can install everything on their local computer
+Instead of RStudio Cloud, more advanced users can install everything on their local computer
 by first installing R from [CRAN](https://cran.r-project.org), and then the free version
 of RStudio from [here](https://www.rstudio.com/products/rstudio/download/). Since the
 usage of RStudio Cloud does not require any local software installs, this
 method is recommended for users who are new to R. For more advanced users the
-local install option is less restrictive and more flexible.  In both cases the
+local install option is less restrictive and more flexible. In both cases the
 user interfaces are extremely similar and the way to run R code is nearly
 identical. 
 
 ### A. Simple link-based approach
-Note, students who are entirely new to R should use this approach:
+Note, students who are entirely new to R should use this approach (A) instead of (B):
 
 1. Create a free personal account on RStudio Cloud
    [here](https://rstudio.cloud/). 
 2. Next click the <span style="background-color: #f1c40f;">RStudio Cloud assignment link</span></a> provided under the same name
    and color coding on the corresponding assignment page on Canvas
-   [here](https://elearn.ucr.edu/courses/17258/assignments/180492). Not only
+   [here](https://elearn.ucr.edu/courses/17258/assignments/180492). Note
    the latter page is private to this class.
 3. Start the pregenerated assignment.
 4. Continue under section 1.2 and skip R package install under section 2.
@@ -63,7 +66,7 @@ This alternative approach is for slightly more advanced R users.
 2. Go to RStudio Cloud [here](https://rstudio.cloud/projects/)
 3. Select under blue _New Project_ menu: `New Project from Git Repository`
 4. Provide this URL to clone BIOL119 repos: [https://github.com/tgirke/BIOL119.git](https://github.com/tgirke/BIOL119.git) 
-5. Continue under section 1.2. Note the R package installs under section 2 will be 
+5. Continue under section 1.2. Note, the initial R package installs under section 2 will be 
    required for this approach.
 
 ## Load R code and run it
@@ -86,9 +89,12 @@ this possible is called R Markdown.
 
 # Install required packages
 
-The following will install all packages required for this exercise. A fresh install into 
-a new R project will take about 2-3 minutes. This install only needs to be done once, meaning
-users want to skip this step after restarting R or rerunning the analysis.
+The following will install all packages required for this exercise. A fresh
+install into a new R project will take about 2-3 minutes. This install only
+needs to be done once, meaning users want to skip this step after restarting R
+or rerunning the analysis. Users who loaded the the pre-configured assignment
+project into their RStudio Cloud account under section 1.1.1 can skip this
+initial package install.
 
 ```{r package_installs, eval=FALSE, message=FALSE, warning=FALSE}
 if(!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
