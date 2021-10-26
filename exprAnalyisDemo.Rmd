@@ -46,8 +46,8 @@ local install option is less restrictive and more flexible. In both cases the
 user interfaces are extremely similar and the way to run R code is nearly
 identical. 
 
-### (A) Simple link-based approach
-Note, students who are entirely new to R should use this approach (A) instead of (B):
+### Simple link-based approach
+Note, students who are entirely new to R should use this approach (1.1.1) instead of (1.1.2):
 
 1. Create a free personal account on RStudio Cloud
    [here](https://rstudio.cloud/). 
@@ -58,7 +58,7 @@ Note, students who are entirely new to R should use this approach (A) instead of
 3. Start the pregenerated assignment.
 4. Continue under section 1.2 and skip R package install under section 2.
 
-### (B) Clone assignment from GitHub
+### Clone assignment from GitHub
 This alternative approach is for slightly more advanced R users.
 
 1. Create a free personal account on RStudio Cloud
@@ -99,7 +99,7 @@ is called [R Markdown](https://rmarkdown.rstudio.com/).
 The following will install all packages required for this exercise. A fresh
 install into a new R project will take about 2-3 minutes. This install only
 needs to be done once, meaning users want to skip this step after restarting R
-or rerunning the analysis. Users who loaded the the pre-configured assignment
+or rerunning the analysis. Users who have loaded the the pre-configured assignment
 project into their RStudio Cloud account under section 1.1.1 can skip this
 initial package install.
 
@@ -114,7 +114,7 @@ The following uses the `GEOquery` package to automatically download from GEO a
 expression data set that involves a chemical treatment. The specific data set
 chosen for this exercise is experiment
 [GDS2778](https://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2778), which is the 
-same one used for the online exercises of computer section SA5. This
+same one used for the online exercises of computer section SA5 of BIOL119. This
 Affymetrix gene expression profiling experiment from Gillis _et al._
 [-@Gillis2007-qk] aims to study the effect of the air pollutant
 1,2,4-benzenetriol on blood cells to provide insight into the molecular basis
@@ -175,6 +175,43 @@ deg_df <- topTable(fit2, coef=1, adjust="fdr", sort.by="B", number=Inf)
 deg_df <- deg_df[!is.na(deg_df$adj.P.Val),] # Removes rows with NA values
 head(deg_df)[,22:27]
 ```
+
+## DEG filtering
+
+The `deg_df` generated above contains the DEG results for all genes without applying 
+any filters. To identify how many genes or probe sets meet certain filter criteria (cutoffs) one
+can first check the total number of number of rows in this table (`data.frame`) where each row
+corresponds to a probe set of a gene. The `nrow` function can be used to return the number of
+rows in this table (here data.frame).
+
+```{r deg_filter_1, eval=TRUE, message=FALSE}
+nr <- nrow(deg_df)
+nr
+```
+
+As shown above the total number of rows or genes (probe sets) in `deg_df` is `r prettyNum(nr, big.mark=",", scientific=FALSE)`. 
+
+To obtain the number of genes that are differentially expressed based on an adjusted 
+p-value (`adj.P.Val`) cutoff $\le 0.01$, one can use the following filtering syntax.
+
+```{r deg_filter_2, eval=TRUE, message=FALSE}
+pf <- nrow(deg_df[deg_df$adj.P.Val <= 0.01, ])
+pf
+```
+
+The number of DEGs meeting passing this filter are `r prettyNum(pf, big.mark=",", scientific=FALSE)`.
+
+To obtain the number of genes with a fold change (`logFC`) of at least 2, 
+one can use the following filtering syntax. Note, a 2-fold change or higher corresponds
+on a log2 scaled (here `logFC`) to: $\ge 1$ OR $\le -1$.
+
+```{r deg_filter_3, eval=TRUE, message=FALSE}
+fcf <- nrow(deg_df[deg_df$logFC >= 1 | deg_df$logFC <= -1, ])
+fcf
+```
+
+The number of DEGs meeting passing this filter are `r prettyNum(fcf, big.mark=",", scientific=FALSE)`.
+
 
 # Enrichment analysis of GO terms 
 
