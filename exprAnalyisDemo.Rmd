@@ -1,17 +1,23 @@
 ---
-title: "BIOL119: Gene Expression Analysis" 
-author: "Author: Your Name"
-date: "Last update: `r format(Sys.time(), '%d %B, %Y')`"
+title: 'BIOL119: Gene Expression Analysis'
+author: 'Author: Your Name'
+date: 'Last update: Oct 26,2021'
 output:
   html_document:
-    toc: true
+    toc: yes
     toc_float:
-        collapsed: true
-        smooth_scroll: true
+      collapsed: yes
+      smooth_scroll: yes
     toc_depth: 3
     fig_caption: yes
     code_folding: show
-    number_sections: true
+    number_sections: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+  word_document:
+    toc: yes
+    toc_depth: '3'
 fontsize: 14pt
 bibliography: bibtex.bib
 type: docs
