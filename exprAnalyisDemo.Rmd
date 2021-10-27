@@ -105,7 +105,7 @@ is called [R Markdown](https://rmarkdown.rstudio.com/).
 The following will install all packages required for this exercise. A fresh
 install into a new R project will take about 2-3 minutes. This install only
 needs to be done once, meaning users want to skip this step after restarting R
-or rerunning the analysis. Users who have loaded the the pre-configured assignment
+or rerunning the analysis. Users who have loaded the pre-configured assignment
 project into their RStudio Cloud account under section 1.1.1 can skip this
 initial package install since a classroom project comes with all packages 
 preinstalled.
