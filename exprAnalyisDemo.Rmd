@@ -26,7 +26,7 @@ Rscript -e "rmarkdown::render('exprAnalyisDemo.Rmd', c('html_document'), clean=F
 # Get started 
 
 The following provides brief instructions how to access RStudio Cloud (or
-R/RStudio), clone the pre-generated code for this exercise from GitHub, and run
+R/RStudio), clone the pre-generated project for this exercise, and run
 the provided analysis code. The latter automatically downloads genome-wide expression data
 from NCBI's GEO database, and then identifies:
 
