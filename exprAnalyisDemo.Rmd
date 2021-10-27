@@ -55,7 +55,7 @@ Note, students who are entirely new to R should use this approach (1.1.1) instea
    and color coding on the corresponding assignment page on Canvas
    [here](https://elearn.ucr.edu/courses/17258/assignments/180492). Note
    the latter page is private to this class.
-3. Start the pregenerated assignment.
+3. Start the pregenerated assignment by clicking the `BIOL119_Expression_Analysis`. This will create a copy of the assignement a student's account.  
 4. Continue under section 1.2 and skip R package install under section 2.
 
 ### Clone assignment from GitHub
@@ -76,7 +76,7 @@ The R code along with the human readable text in this document can be opened and
 1. Open source `Rmd` file for this document by selecting in top menu: `File` ->
    `Open File` -> `exprAnalyisDemo.Rmd`. Alternatively, one can click the name of this 
    file in RStudio's file browser, usually located in the window on the bottom right. Either option
-   will opent the `Rmd` in the code editor window usually located in the top right window.
+   will open the `Rmd` in the code editor window usually located in the top left window.
 2. Execute code of the `Rmd` file line by line by placing the cursor on a line of R code 
    and then pressing on the keyboard `Ctrl + Enter`. This will send the corresponding code line
    to the R console (located on bottom left) and execute (run) the code. It is important to execute the
@@ -296,8 +296,8 @@ barplot(ego_bp, showCategory=10)
 The following uses DEGs passing an adjusted p-value cutoff of $\le 0.05$ to
 subset the gene expression matrix imported from GEO. The subsetted matrix is then used
 for hierarchical clustering. The result is visualized in form of a heatmap
-where the rows and columns are sorted by the gene- and column-wise hierarchical
-clustering dendromgrams, respectively. The actual expression values are represented 
+where the rows and columns are sorted by the gene- and sample-wise hierarchical
+clustering dendrograms, respectively. The actual expression values are represented 
 in the heatmap using a custom color scheme. In this case, row-wise scaling (see `scale=row`) 
 is applied to maximize the number of colors used for visualizing the expression profile for 
 each gene. Users interested in learning more about clustering in R can consult this [tutorial](https://girke.bioinformatics.ucr.edu/GEN242/tutorials/rclustering/rclustering/).
