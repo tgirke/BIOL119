@@ -1,5 +1,5 @@
 ---
-title: 'BIOL119: Gene Expression Analysis'
+title: 'BIOL119-2022: Gene Expression Analysis'
 author: 'Author: Your Name'
 date: "Last update: `r format(Sys.time(), '%d %B, %Y')`"
 output:
@@ -59,7 +59,7 @@ Note, students who are entirely new to R should use this approach (1.1.1) instea
    [here](https://rstudio.cloud/). 
 2. Next click the <span style="background-color: #f1c40f;">RStudio Cloud assignment link</span></a> provided under the same name
    and color coding on the corresponding assignment page on Canvas
-   [here](https://elearn.ucr.edu/courses/17258/assignments/180492). Note
+   [here](https://elearn.ucr.edu/courses/62062/assignments/405335). Note
    the latter page is private to this class.
 3. Start the pregenerated assignment by clicking the `BIOL119_Expression_Analysis`. This will create a copy of the assignement in a student's account.  
 4. Continue under section 1.2 and skip R package install under section 2.
