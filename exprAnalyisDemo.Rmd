@@ -1,5 +1,5 @@
 ---
-title: 'BIOL119-2022: Gene Expression Analysis'
+title: 'BIOL119-2023: Gene Expression Analysis'
 author: 'Author: Your Name'
 date: "Last update: `r format(Sys.time(), '%d %B, %Y')`"
 output:
@@ -22,6 +22,8 @@ fontsize: 14pt
 bibliography: bibtex.bib
 type: docs
 weight: 304
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!---
@@ -55,13 +57,13 @@ identical.
 ### Simple link-based approach
 Note, students who are entirely new to R should use this approach (1.1.1) instead of (1.1.2):
 
-1. Create a free personal account on RStudio Cloud
-   [here](https://rstudio.cloud/). 
-2. Next click the <span style="background-color: #f1c40f;">RStudio Cloud assignment link</span></a> provided under the same name
+1. Create a free personal account on Posit (RStudio) Cloud
+   [here](https://posit.cloud/). 
+2. Next click the <span style="background-color: #f1c40f;">Posit (RStudio) Cloud assignment link</span></a> provided under the same name
    and color coding on the corresponding assignment page on Canvas
    [here](https://elearn.ucr.edu/courses/62062/assignments/405335). Note
    the latter page is private to this class.
-3. Start the pregenerated assignment by clicking the `BIOL119_Expression_Analysis`. This will create a copy of the assignement in a student's account.  
+3. Start the pregenerated assignment by clicking the `BIOL119_Expression_Analysis`. This will create a copy of the assignment in a student's account.  
 4. Continue under section 1.2 and skip R package install under section 2.
 
 ### Clone assignment from GitHub
@@ -81,7 +83,7 @@ The R code along with the human readable text in this document can be opened and
 
 1. Open source `Rmd` file for this document by selecting in top menu: `File` ->
    `Open File` -> `exprAnalyisDemo.Rmd`. Alternatively, one can click the name of this 
-   file in RStudio's file browser, usually located in the window on the bottom right. Either option
+   file in Posit's (RStudio's) file browser, usually located in the window on the bottom right. Either option
    will open the `Rmd` in the code editor window usually located in the top left window.
 2. Execute code of the `Rmd` file line by line by placing the cursor on a line of R code 
    and then pressing on the keyboard `Ctrl + Enter`. This will send the corresponding code line
