@@ -1602,25 +1602,25 @@ Rscript -e "rmarkdown::render('Intro2R.Rmd', c('html_document'), clean=FALSE)"
 -->
 <div id="import-of-table" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Import of Table</h1>
-<p>The following provides very brief introduction to R using a tabular
+<p>The following provides a very brief introduction to R using a tabular
 file as an example <span class="citation">(R Core Team 2022)</span>. As
-tabular file a test data set within R called <code>iris</code> will be
+tabular file, a test data set within R called <code>iris</code> will be
 written to a file. After executing the following
-<code>write.table</code> command, a new file named ‘iris.tab’ will
-appear in the File browser panel. From within RStudio Cloud this file
-can be downloaded with the Export option in the same panel. For learning
-purposes, also try this example with your own tabular file,
+<code>write.table</code> command, a new file named <code>iris.tab</code>
+will appear in the File browser panel. From within RStudio Cloud this
+file can be downloaded with the Export option in the same panel. For
+learning purposes, also try this example with your own tabular file,
 e.g. exported from Excel or Google Sheets.</p>
 <pre class="r"><code>write.table(iris, file=&quot;iris.tab&quot;, row.names=FALSE, quote=FALSE, sep=&quot;\t&quot;) </code></pre>
 <p>Next, the exported sample file will be imported into R with the
 <code>read.delim</code> function. The data will be assigned to an object
 named <code>df</code>. The assignment operator <code>&lt;-</code> will
-be used for this. The class of resulting object is a
+be used for this. The class of the resulting object is a
 <code>data.frame</code>. Its dimensions can be checked with the
-<code>dim</code> function, here 150 rows and 5 columns. To print only
-the first 4 rows to the screen, one can use the subsetting operator
-<code>[1:4 , ]</code>. With <code>[1:4, 1:2]</code> one can subset the
-object to the first 4 rows and first 2 columns.</p>
+<code>dim</code> function, returning here 150 rows and 5 columns. To
+print only the first 4 rows to the screen, one can use the subsetting
+operator <code>[1:4 , ]</code>. With <code>[1:4, 1:2]</code> one can
+subset the object to the first 4 rows and first 2 columns.</p>
 <pre class="r"><code>df &lt;- read.delim(&quot;iris.tab&quot;)
 class(df)</code></pre>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
@@ -1640,6 +1640,8 @@ class(df)</code></pre>
 ## 4          4.6         3.1</code></pre>
 <div id="nicer-tables" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Nicer tables</h2>
+<p>To print nicer table, in the R Markdown <code>html</code> report, the
+<code>kable</code> function from the knitr package can be used.</p>
 <pre class="r"><code>library(knitr)
 kable(df[1:4,])</code></pre>
 <table>
