@@ -1,5 +1,5 @@
 ---
-title: 'BIOL119-2023: Gene Expression Analysis'
+title: 'BIOL119-2024: Gene Expression Analysis'
 author: 'Author: Your Name'
 date: "Last update: `r format(Sys.time(), '%d %B, %Y')`"
 output:
