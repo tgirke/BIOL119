@@ -114,7 +114,7 @@ preinstalled.
 
 ```{r package_installs, eval=FALSE, message=FALSE, warning=FALSE}
 if(!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
-BiocManager::install(c("GEOquery", "limma", "clusterProfiler", "org.Hs.eg.db", "enrichplot", "pheatmap", "RColorBrewer"))
+BiocManager::install(c("GEOquery", "limma", "clusterProfiler", "org.Hs.eg.db", "enrichplot", "pheatmap", "RColorBrewer", "rmarkdown"))
 ```
 
 # Import data from GEO
