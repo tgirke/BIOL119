@@ -278,7 +278,7 @@ the tree structure of the corresponding DAG, the `goplot` function can be used.
 
 ```{r plot_enrichment_mf, eval=TRUE, message=FALSE}
 barplot(ego_mf, showCategory=10)
-goplot(ego_mf)
+# goplot(ego_mf)
 ```
 
 ## Enrichment of BP terms
